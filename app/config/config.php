@@ -7,15 +7,15 @@
     define('DB_HOST', 'localhost');
     define('DB_USER', 'root');
     define('DB_PASS', '');
-    define('DB_NAME', 'tmvc'); // This values can change depending what do I want to use.
+    define('DB_NAME', 'shareposts'); // This values can change depending what do I want to use.
 
     // App Root
     define('APPROOT', dirname(dirname(__FILE__))); //give us the app root (dirname() == "cd").
 
     // URL Root
-    define('URLROOT', 'http://localhost/traversymvc'); // your url
+    define('URLROOT', 'http://localhost/shareposts'); // your url
 
     // Site Name
-    define('SITENAME', 'TraversyMVC');  //your siteName
+    define('SITENAME', 'SharePosts');  //your siteName
 
 
