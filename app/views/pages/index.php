@@ -3,7 +3,6 @@
     <div class="container">
         <h1 class="display-3"><?php echo /** @var TYPE_NAME $data */ $data['title']; ?></h1>
         <p class="lead"><?php echo $data['description']; ?></p>
-        <p><?php echo URLROOT ?>   URL</p>
     </div>
 </div>
 <?php require APPROOT . '/views/inc/footer.php'; ?>
