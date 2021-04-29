@@ -65,7 +65,7 @@
 
         // Execute the prepared statement
     public function execute(){
-        return $this->stmt->execute();
+        return $this -> stmt -> execute();
     }
 
         // Get result set as array of objects
@@ -74,6 +74,7 @@
             return $this -> stmt -> fetchAll(PDO::FETCH_OBJ);
         }
 
+        // Get single record as object
         public function single(){
             $this -> execute();
             return $this -> stmt -> fetch(PDO::FETCH_OBJ);
