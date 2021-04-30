@@ -177,7 +177,7 @@
             $_SESSION['user_id'] = $user -> id;
             $_SESSION['user_email'] = $user -> email;
             $_SESSION['user_name'] = $user -> name;
-            redirect('pages/index'); // Once I log in I get redirected to index
+            redirect('posts'); // Once I log in I get redirected to index
         }
 
         // Delete all session variables that I've created before
@@ -189,11 +189,4 @@
             redirect('users/login');
         }
 
-        public function isLoggedIn(){
-            if(isset($_SESSION['user_id'])){
-                return true;
-            } else {
-                return false;
-            }
-        }
     }
