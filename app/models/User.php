@@ -33,11 +33,11 @@
             if(password_verify($password, $hashed_password)) {
                 return $row;
             } else{
-                    false;
+                return false;
                 }
         }
 
-        // Find user by email
+        // Find user by Email
         public function findUserByEmail($email){
             // I use bind to prevent malicious code that can destroy my database.
             $this -> db -> query('SELECT * FROM users WHERE email = :email');
@@ -54,4 +54,14 @@
            }
         }
 
+        // Get User by ID
+        public function getUserById($id){
+            $this -> db -> query('SELECT * FROM users WHERE id = :id');
+            // Bind values
+            $this -> db -> bind(':id', $id);
+
+            $row = $this -> db -> single();
+
+            return $row;
+        }
 }
