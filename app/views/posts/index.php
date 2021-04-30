@@ -2,7 +2,8 @@
 <?php flash('post_message'); ?>
     <div class="row">
         <div class="col-md-6">
-            <h1>Posts</h1>
+            <h1>Experiences</h1>
+            <br>
         </div>
         <div class="col-md-6">
             <a href="<?php echo URLROOT; ?>/posts/add" class="btn btn-primary pull-right">
@@ -19,5 +20,6 @@
             <p class="card-text"><?php echo $post -> body; ?> </p>
             <a href="<?php echo URLROOT; ?>/posts/show/<?php echo $post -> postId; ?>" class="btn btn-dark">More</a>
         </div>
+        <br>
     <?php endforeach; ?>
 <?php require APPROOT . '/views/inc/footer.php'; ?>
