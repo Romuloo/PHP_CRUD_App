@@ -1,11 +1,35 @@
 <?php
+/**
+Copyright [2021] [Javier Linares Castrillón]
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+ */
+/**
+ *@author Javier Linares
+ */
 
+/**
+ * This class manages users. Controls the user registration and login.
+ */
     class Users extends Controller {
 
+        /**
+         * Users constructor.
+         */
         public function __construct(){
             $this -> userModel = $this->model('User');
         }
 
+        /**
+         * This method allows the user to register himself.
+         */
         public function register(){
             // Check for POST
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -66,10 +90,13 @@
                     $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT); // I reset the password to
                                                                                                  // a hash.
 
-                // Register User
+                // Register User and sends a mail
                     if($this -> userModel -> register($data)){
                         flash('register_success' , 'You are registered and can log in');
+                        mail($data['email'], SUBJECT, MESSAGE, HEADERS);
                         redirect('users/login');
+
+
                     } else{
                         die('Something went wrong');
                     }
@@ -78,10 +105,6 @@
                     // Load view with errors
                     $this -> view('users/register', $data);
                 }
-
-
-
-
 
             } else{
                 // Init data
@@ -95,13 +118,15 @@
                     'password_err' => '',
                     'confirm_password_err' => ''
                  ];
-
                 // Load view
                 $this -> view('users/register', $data);
 
             }
         }
 
+        /**
+         * This method allows the user to log into the page with his credentials.
+         */
         public function login(){
             // Check for POST
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -171,6 +196,10 @@
         }
 
 
+        /**
+         * Sets the user values to sessions
+         * @param $user
+         */
         public function createUserSession($user){
             // I'm setting the user_id, user_email and user_name into a session variable.
             $_SESSION['user_id'] = $user -> id;
@@ -179,6 +208,9 @@
             redirect('posts'); // Once I log in I get redirected to index
         }
 
+        /**
+         * Allos the User to log out.
+         */
         // Delete all session variables that I've created before
         public function logout(){
             unset($_SESSION['user_id']);

@@ -22,17 +22,21 @@ limitations under the License.
     define('DB_HOST', 'localhost');
     define('DB_USER', 'root');
     define('DB_PASS', '');
-    define('DB_NAME', 'erasmusapp'); // This values can change depending what do I want to use.
+    define('DB_NAME', 'erasmusapp');
 
     // App Root
-    define('APPROOT', dirname(dirname(__FILE__))); //give us the app root (dirname() == "cd").
+    define('APPROOT', dirname(dirname(__FILE__)));
 
     // URL Root
-    define('URLROOT', 'http://localhost/erasmusApp'); // your url
-
+    define('URLROOT', 'http://localhost/erasmusApp');
     // Site Name
-    define('SITENAME', 'Erasmus - Dundalk');  //your siteName
+    define('SITENAME', 'Erasmus - Dundalk');
 
-    // App Version
-    define('APPVERSION', '1.0.0');
+    // Email stuff
+    define('SUBJECT', 'Registration completed');
+    define('MESSAGE', 'You have registered in the erasmus app.');
+    define('HEADERS', 'From: D00234578@student.dkit.ie');
+
+
+
 

@@ -13,14 +13,24 @@ limitations under the License.
  */
 
 /**
- * Class
+ * @author Javier Linares
+ */
+
+/**
+ * This class controls pages (index and location).
  */
 class Pages extends Controller {
 
+    /**
+     * Pages constructor.
+     */
     public function __construct(){
 
     }
 
+    /**
+     * Defines the page index
+     */
     public function index(){
 
         if(isLoggedIn()){
@@ -35,6 +45,9 @@ class Pages extends Controller {
         $this -> view('pages/index', $data);
     }
 
+    /**
+     * Defines the page location
+     */
     public function situation(){
         $desc = 'Dundalk is located halfway between Dublin and Belfast. This makes it an excellent meeting point for businesses. 
                     It’s a big town with a young student atmosphere.';

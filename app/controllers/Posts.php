@@ -1,5 +1,28 @@
 <?php
+/**
+Copyright [2021] [Javier Linares Castrillón]
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+ */
+
+/**
+ * @author Javier Linares
+ */
+
+/**
+ * This class controls posts. Allow the user to add/remove/modify/read posts.
+ */
 class Posts extends Controller {
+    /**
+     * Posts constructor.
+     */
     public function __construct(){
         if(!isLoggedIn()){
             redirect('users/login');
@@ -10,6 +33,9 @@ class Posts extends Controller {
 
     }
 
+    /**
+     * Initialize posts
+     */
     public function index(){
         // Get posts
         $posts = $this->postModel->getPosts();
@@ -21,6 +47,9 @@ class Posts extends Controller {
         $this->view('posts/index', $data);
     }
 
+    /**
+     * Adds posts.
+     */
     public function add(){
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             // Sanitize POST array
@@ -64,10 +93,14 @@ class Posts extends Controller {
 
             $this->view('posts/add', $data);
         }
+
     }
 
 
-
+    /**
+     * Allows the user to edit posts
+     * @param $id
+     */
         public function edit($id){ // ID will tell the app which one to edit
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 // Sanitize POST array
@@ -122,7 +155,10 @@ class Posts extends Controller {
                 $this->view('posts/edit', $data);
             }
         }
-
+    /**
+     * Allows the user read
+     * @param $id
+     */
     public function show($id){
        $post = $this -> postModel -> getPostById($id);
        $user = $this -> userModel -> getUserById($post -> user_id);
@@ -133,8 +169,13 @@ class Posts extends Controller {
         ];
 
         $this -> view('posts/show', $data);
+
     }
 
+    /**
+     * Allow user to remove HIS posts.
+     * @param $id
+     */
     public function delete($id){
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             // Get existing post from model

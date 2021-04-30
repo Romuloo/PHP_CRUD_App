@@ -1,3 +1,9 @@
+<?php
+/**
+ * This code sources belongs to "https://www.bootstrapcdn.com/"
+ */
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +14,7 @@
           integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
           integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/style.css">
+    <link rel="stylesheet" href="<?php echo URLROOT; ?>//css/style.css">
     <title><?php echo SITENAME; ?></title>
 </head>
 <body>
